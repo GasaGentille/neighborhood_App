@@ -11,10 +11,10 @@ from .forms import NewProjectForm,ProfileForm,ReviewForm
 
 # Create your views here.
 
-@login_required(login_url='/accounts/login/')
-def project(request):
-    projects = Project.objects.all()
-    return  render (request,'index.html',{"projects":projects})
+# @login_required(login_url='/accounts/login/')
+# def project(request):
+#     projects = Project.objects.all()
+#     return  render (request,'index.html',{"projects":projects})
 
 @login_required(login_url='/accounts/login/')
 def profile(request, username=None):
