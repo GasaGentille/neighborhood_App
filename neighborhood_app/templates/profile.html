@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div class="container" style="margin-left:25%">
+
+    <div class="row">
+
+
+        <div class="col-md-4">
+
+            <img src="{{user.profile.profile_photo.url}}" alt="Profile" class="img_profile" class="img-responsive"
+                style="border-radius: 50%; width: 50%">
+
+            <a href="{%url 'add_profile' %} " style="color:white; background-color:blue; margin-top:30px;font-size: 40px; border-radius: 50%; width: 50px">&#43;</a>
+
+
+        </div>
+        <div class="col-md-6" style="margin-top:40px">
+            <h4 class="account-heading text-secondary ml-4" style="margin-left:30px">Username:{{user.username}}</h4>
+            <p class="text-secondary ml-4">Bio:{{user.profile.bio}}</p>
+            <p class="text-secondary ml-4">Contact:{{user.profile}}</p>
+        </div>
+    </div>
+    <hr>
+
+    <!-- <div class="row">
+        {% for user in prjects %}
+        <div class="col-md-4" style="margin-right: 5%;">
+            <h2>MY PROJECTS</h2>
+            <img src="{{user.project.url}}" style="width: 300px;height: 300px">
+            <h6><strong>Project-title:</strong>{{ project.title}} </h6>
+            <h6>{{ project.project_description}} </h6>
+            <a href="{{project.project_link}}" class="centered"> PROJECT SITE</a><hr>
+            <a href="{% url 'oneProject' project.id %}">MORE</a>
+        </div>
+        {% endfor %}
+
+    </div> -->
+
+</div>
+
+
+</div>
+</div>
+{% endblock %}
