@@ -1,71 +1,102 @@
-
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your models here.
-
-class Project(models.Model):
-    project = models.ImageField(upload_to = 'projects/',null=True )
-    title = models.CharField(max_length =30,null=True)
-    project_description = models.CharField(max_length =30,null=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE ,null=True )
-    project_link = models.URLField(max_length= 300,null=True)
-    
-    
+class NeighborHood(models.Model):
+    name=models.CharField(max_length =50)
+    location=models.CharField(max_length =50)
+    occupants_count=models.IntegerField(default=0)
+    admin=models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.name
 
-    def save_project(self):
+    @classmethod
+    def create_neighborhood(self):
         self.save()
 
-    def delete_delete(self):
+    @classmethod
+    def delete_neighborhood(self):
+        self.delete()
+    
+    @classmethod
+    def find_neighborhood(cls,neighborhood_id):
+        neighborhood = cls.objects.get(id=neighborhood_id)
+        return neighborhood
+
+    def update_neighborhood():
+        self.update()  
+
+    def update_occupants():
+        occupants=self.update_occupants.update()       
+        return occupants
+
+class Profile(models.Model):
+    
+    first_name= models.CharField(max_length=50)
+    last_name= models.CharField(max_length=50)
+    neighborhood=models.ForeignKey(NeighborHood)
+    user=models.ForeignKey(User,on_delete=models.CASCADE) 
+
+    def __str__(self):
+        return self.first_name
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()     
+
+    def update_profile(self):
+        self.update()       
+
+
+class BusinessClass(models.Model):
+    business_name=models.CharField(max_length =50)
+    neighborhood=models.ForeignKey(NeighborHood)
+    profile=models.ForeignKey(Profile)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    email_address=models.EmailField()
+
+
+    def save_business(self):
+        self.save()
+
+    def delete_business(self):
         self.delete()
 
     @classmethod
-    def search_by_title(cls,search_term):
-        projects = cls.objects.filter(title__icontains=search_term)
-        return projects
+    def find_business(cls,business_id):
+        biz=cls.objects.filter(id=business_id)
+        return biz
+
+    @classmethod
+    def find_neighborhood(cls,neighborhood_id):
+        neighbor=neighborhood.id
+        neighbor1 = cls.objects.get(neighbor=neighborhood_id)
+        return neighbor   
+
+    def update_business(self):
+        self.update()
+
+class Event(models.Model):
+    description=models.CharField(max_length =50)
+    neighborhood=models.ForeignKey(NeighborHood,null=True)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+    
 
 
-class Review(models.Model):
-    RATING_CHOICES = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-        (6, '6'),
-        (7, '7'),
-        (8, '8'),
-        (9, '9'),
-        (10, '10')
-    )
-    user = models.ForeignKey(User,on_delete=models.CASCADE ,null=True )
-    project = models.ForeignKey(Project,on_delete=models.CASCADE)
-    design = models.IntegerField(blank=True,default=0)
-    usability = models.IntegerField(blank=True,default=0)
-    content = models.IntegerField(blank=True,default=0)
-
-
-class Profile(models.Model):
-    profile_photo= models.ImageField(upload_to = 'images/', null=True)
-    bio = models.CharField(max_length =30)
-    contact = models.CharField(max_length =30,null=True )
-    user = models.OneToOneField(User,on_delete=models.CASCADE ,related_name="profile",null=True)
-    project = models.ForeignKey(Project,null=True)
-
-
-    def __str__(self):
-        return self.bio
-
-    def save_profile(self):
+    def save_event(self):
         self.save()
 
-    def save_profile(self):
-        self.user
-    def delete_profile(self):
-        self.delete()
+    def delete_event(self):
+        self.delete() 
+
+    @classmethod
+    def find_neighborhood(cls,neighborhood_id):
+        neighbor=neighborhood.id
+        neighbor1 = cls.objects.get(neighbor=neighborhood_id)
+        return neighbor   
 
 

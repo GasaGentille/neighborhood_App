@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{% block content %}
+{{block.super}}
+<div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
+        <h1 style="text-align: center"> Welcome to {{neighbors.name}}  {{user.username}}
+            </h1>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+           
+           <h2>Available businesses:</h2>
+            {% for b in business%}
+            <p><strong>Biz name:</strong>{{b.business_name}}</p>
+            <p><strong>Biz email:</strong>{{b.email_address}}</p>
+            <hr>
+            {% endfor %}
+           
+            
+ </div>       
+</div>
+        </div>
+        <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+               
+               <h2>Neighborhood Events:</h2>
+               <a   href="{%url 'new-event'%}" value=""><button class="btn btn-dark btn-lg">Add Event</button></a>
+               {% for e in event %}
+            <p><strong>event description:</strong>{{e.description}}</p>
+            <p><strong>Date:</strong>{{e.date}}</p>
+            <hr>
+            {% endfor %}
+                
+               
+                
+     </div>       
+    </div>
+            </div>
+    </div>
+
+</div>
+{% endblock %}

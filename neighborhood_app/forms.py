@@ -1,26 +1,18 @@
-from .models import Project,Profile,Review
+
+from .models import BusinessClass,Profile,Event
 from django import forms
 
-class NewProjectForm(forms.ModelForm):
+class NewBizForm(forms.ModelForm):
     class Meta:
-        model = Project
-        fields = ('project','title','project_description')
+        model = BusinessClass
+        exclude = ['user']
 
-class ProfileForm(forms.ModelForm):
+class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('profile_photo','bio','contact')
-        exclude=['user']
+        exclude = ['user'] 
 
-class UpdateProfileForm(forms.ModelForm):
+class NewEventForm(forms.ModelForm):
     class Meta:
-        model = Profile
-        fields = ('profile_photo','bio','contact')
-        exclude=['user']
-
-class ReviewForm(forms.ModelForm):
-    class Meta:
-        model = Review
-        fields = ['design', 'content','usability']
-        exclude=['project']
-        
+        model = Event
+        exclude = ['user']                

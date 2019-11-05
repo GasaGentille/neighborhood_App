@@ -1,46 +1,21 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}
-{% load static %}
+{%extends 'base.html'%}
+{% load bootstrap4 %} 
+{% load staticfiles %}
 {% block content %}
-<div class="container" style="margin-left:25%">
-
-    <div class="row">
-
-
-        <div class="col-md-4">
-
-            <img src="{{user.profile.profile_photo.url}}" alt="Profile" class="img_profile" class="img-responsive"
-                style="border-radius: 50%; width: 50%">
-
-            <a href="{%url 'add_profile' %} " style="color:white; background-color:blue; margin-top:30px;font-size: 40px; border-radius: 50%; width: 50px">&#43;</a>
-
-
+{{block.super}}
+<div class="col s12 m12 l6 xl6">
+        <h3 style="text-align: center">{{current_user.username}}'profile credentials</h3>
+        <div class="card" style="margin-top:8%;padding:5%">
+            
+            <div class="card-body">
+            <p><strong>Firstname:</strong>{{profile.first_name}}</p>
+            <p><strong>Lastname:</strong>{{profile.last_name}}</p>
+            <p><strong>Neighborhood:</strong>{{profile.neighborhood}}</p>
+            <a  href="{% url 'new-business'%}"><button class="btn btn-dark btn-lg">Add business</button></a>
+            <a   href="{%url 'profile'%}" value=""><button class="btn btn-dark btn-lg">Update profile</button></a>
+            
         </div>
-        <div class="col-md-6" style="margin-top:40px">
-            <h4 class="account-heading text-secondary ml-4" style="margin-left:30px">Username:{{user.username}}</h4>
-            <p class="text-secondary ml-4">Bio:{{user.profile.bio}}</p>
-            <p class="text-secondary ml-4">Contact:{{user.profile}}</p>
         </div>
-    </div>
-    <hr>
-
-    <!-- <div class="row">
-        {% for user in prjects %}
-        <div class="col-md-4" style="margin-right: 5%;">
-            <h2>MY PROJECTS</h2>
-            <img src="{{user.project.url}}" style="width: 300px;height: 300px">
-            <h6><strong>Project-title:</strong>{{ project.title}} </h6>
-            <h6>{{ project.project_description}} </h6>
-            <a href="{{project.project_link}}" class="centered"> PROJECT SITE</a><hr>
-            <a href="{% url 'oneProject' project.id %}">MORE</a>
         </div>
-        {% endfor %}
-
-    </div> -->
-
-</div>
-
-
-</div>
-</div>
-{% endblock %}
+       
+        {% endblock %}
