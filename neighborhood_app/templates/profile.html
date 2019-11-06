@@ -1,21 +1,23 @@
-{%extends 'base.html'%}
-{% load bootstrap4 %} 
+{% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load staticfiles %}
 {% block content %}
-{{block.super}}
-<div class="col s12 m12 l6 xl6">
-        <h3 style="text-align: center">{{current_user.username}}'profile credentials</h3>
-        <div class="card" style="margin-top:8%;padding:5%">
-            
-            <div class="card-body">
-            <p><strong>Firstname:</strong>{{profile.first_name}}</p>
-            <p><strong>Lastname:</strong>{{profile.last_name}}</p>
-            <p><strong>Neighborhood:</strong>{{profile.neighborhood}}</p>
-            <a  href="{% url 'new-business'%}"><button class="btn btn-dark btn-lg">Add business</button></a>
-            <a   href="{%url 'profile'%}" value=""><button class="btn btn-dark btn-lg">Update profile</button></a>
-            
+{{ block.super }}
+
+<div>
+    <h2>{{current_user.username}} Profile</h2>
+    
+    <div class="card" style="margin-top:8%;padding:5%">
+
+        <div class="card-body">
+            <p>Firstname:{{profile.first_name}}</p>
+            <p>Lastname:{{profile.last_name}}</p>
+            <p>Neighborhood:{{profile.neighborhood}}</p>
+            <a href="{% url 'new-business'%}"><button class="btn btn-default btn-lg">Add business</button></a>
+            <a href="{%url 'profile'%}" value=""><button class="btn btn-default btn-lg">Update profile</button></a>
+
         </div>
-        </div>
-        </div>
-       
-        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,18 +1,18 @@
 {%extends 'base.html'%}
 {% block content %}
 {{block.super}}
-<div class="container"style="font-family: 'ZCOOL XiaoWei', serif">
-        <h1 style="text-align: center">Click and sign to any neighborhood</h1>
+<div class="container" style="font-family: 'ZCOOL XiaoWei', serif">
+    <h1>Get your neighborhood</h1>
     {% for n in neighbor %}
-  
-  
-        
-                <div class="thumbnail">
-                    <h4><a  style="text-align: center;color:black" href="{% url 'neighborhood' neighborhood_id=n.id %}">{{n.name}}</a></h4>
-                    
+
+
+
+    <div class="thumbnail">
+        <h4><a style="text-align: center;color:black" href="{% url 'neighborhood' neighborhood_id=n.id %}">{{n.name}}</a></h4>
+
     </div>
-    <hr style="background-color: black">
+
     {% endfor %}
-    
+
 </div>
 {% endblock %}

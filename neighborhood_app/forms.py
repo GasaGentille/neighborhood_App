@@ -1,18 +1,19 @@
 
-from .models import BusinessClass,Profile,Event
+from .models import Business,Profile,Event,Neighbor
 from django import forms
 
-class NewBizForm(forms.ModelForm):
+class BusinessForm(forms.ModelForm):
     class Meta:
-        model = BusinessClass
+        model = Business
         exclude = ['user']
 
-class NewProfileForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['user'] 
+        exclude= ['user']
 
-class NewEventForm(forms.ModelForm):
+class EventForm(forms.ModelForm):
     class Meta:
-        model = Event
-        exclude = ['user']                
+        model= Event
+        exclude=['user']
+                
