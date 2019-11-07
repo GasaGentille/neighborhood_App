@@ -12,10 +12,11 @@
                     <h2>BUSINESSES:</h2>
                     {% for b in business%}
                     <p><strong>Business name:</strong>{{b.business_name}}</p>
-                    <p><strong>Business email:</strong>{{b.email_address}}</p>
+                    <p><strong>Business email:</strong>{{b.email}}</p>
+                    <p><stong>Neighborhood:</stong>{{b.neighborhood}}</p>
                     <hr>
                     {% endfor %}
-
+                    <a href="{%url 'new-business'%}" value=""><button class="btn btn-success btn-lg">Add business</button></a>
 
                 </div>
             </div>
@@ -25,14 +26,14 @@
                 <div class="card-body">
 
                     <h2>POSTS:</h2>
-                    <a href="{%url 'new-business'%}" value=""><button class="btn btn-sucess btn-lg">Add business%</button></a>
-                    <a href="{%url 'nw-event' %}" value=""><button class="btn btn-success btn-lg">Add Event</button></a>
+                    
+                    
                     {% for e in event %}
                     <p><strong>event description:</strong>{{e.description}}</p>
                     <p><strong>Date:</strong>{{e.date}}</p>
                     <hr>
                     {% endfor %}
-
+                    <a href="{%url 'nw-event' %}" value=""><button class="btn btn-success btn-lg">Add Post</button></a>
 
 
                 </div>

@@ -67,9 +67,9 @@ class Business(models.Model):
         self.update()
     
     @classmethod
-    def find_business(cls,business_id):
-        business =cls.objects.filter(id=business_id)
-        return business
+    def search_by_name(cls,search_term):
+        business_name = cls.objects.filter(business_name__icontains=search_term)
+        return business_name
     
     @classmethod
     def find_neighborhood(cls,neighborhood_id):

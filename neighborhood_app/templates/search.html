@@ -1,30 +1,29 @@
-{%extends 'base.html'%}
+{%extends 'base.html'%} 
 {% block content %}
-{% load bootstrap4 %}
-{% load static %}
 <div class="container">
 
-    <div class="row">
-        {% if articles %}
-        <h2>Found {{ articles|length }} of searched term {{message}}</h2>
-        {% else %}
-        <h2> Found 0 articles for the search term {{message}}</h2>
-        {% endif %}
+  <div class="row">
+    {% if businesses%}
+      <h2 style="text-align:center">Found {{ businesses|length }} of searched term {{message}}</h2>
+    {% else %}
+      <h2 style="text-align:center"> Found 0 articles for the search term {{message}}</h2>
+    {% endif %}
 
-    </div>
+  </div>
 
-    <div class="row">
+  <div class="row" style="margin-left:25%">
 
-        {% if articles %}
-        {% for article in articles %}
-        <div class="col-sm-6 col-md-3">
-            <h1>{{article.title}}</h1>
-            <img src="{{article.project.url}}">
-        </div>
-        {% endfor %}
-
-        {% endif %}
-
-    </div>
+  {% if businesses %}
+    {% for business in businesses %}
+      <div class="col-md-3" style="font-size:20px">
+        <p><strong>business_name:</strong>{{business.business_name}}</p>
+        <p><strong>Email_address:</strong>{{business.email}}</p>
+        <p><strong>Location:</strong>{{business.neighborhood}}</p>
+        
+          
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
 </div>
 {% endblock %}

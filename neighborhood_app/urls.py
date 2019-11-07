@@ -9,4 +9,5 @@ urlpatterns=[
     url(r'^neighborhood/(?P<neighborhood_id>\d+)',views.neighborhood,name = 'neighborhood'),
     url(r'^profile/',views.new_profile,name = 'add_profile'),
     url(r'^new/profile$', views.myprofile, name='profile'),
+    url(r'^search/', views.search_business, name='search_business'),
 ]
