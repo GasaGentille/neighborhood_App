@@ -73,7 +73,7 @@ def new_profile(request):
 def myprofile(request):
      current_user = request.user
      profile = Profile.objects.filter(user=current_user).first()
-     return render(request,'prfile.html',{"profile":profile,"current_user":current_user})
+     return render(request,'prfile.html',{"profile":profile})
 
 def search_business(request):
 
