@@ -2,22 +2,20 @@
 {% load bootstrap4 %}
 {% load staticfiles %}
 {% block content %}
-{{ block.super }}
+{{ block.super}}
 
 <div>
     <h2>{{current_user.username}} Profile</h2>
-    
-    <div class="card" style="margin-top:8%;padding:5%">
+    <div>
+        <p>First name:{{profile.f_name}}</p>
+        <p>Last name:{{profile.l_name}}</p>
+        <P>Neighborhood: {{profile.neighborhood}}</p>
+        <a href="{% url 'new-business' %}"><button class="btn btn-success btn-lg">Add business</button></a>
+        <a href="{% url 'profile' %}"><button class="btn btn-success btn-lg"></button>Edit profile</button></a>
 
-        <div class="card-body">
-            <p>Firstname:{{profile.first_name}}</p>
-            <p>Lastname:{{profile.last_name}}</p>
-            <p>Neighborhood:{{profile.neighborhood}}</p>
-            <a href="{% url 'new-business'%}"><button class="btn btn-default btn-lg">Add business</button></a>
-            <a href="{%url 'profile'%}" value=""><button class="btn btn-default btn-lg">Update profile</button></a>
-
-        </div>
     </div>
 </div>
+
+
 
 {% endblock %}
