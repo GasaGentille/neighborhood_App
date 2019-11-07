@@ -1,29 +1,32 @@
-{%extends 'base.html'%} 
+{%extends 'base.html'%}
 {% block content %}
-<div class="container">
+<div class="container"  style="margin-left:25%; margin-top: 10%">
+<!-- 
+    <div class="row" style="font-size:20px">
+        {% if businesses%}
+        <h2 style="text-align:center">Found {{ businesses|length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2 style="text-align:center"> Found 0 articles for the search term {{message}}</h2>
+        {% endif %}
 
-  <div class="row">
-    {% if businesses%}
-      <h2 style="text-align:center">Found {{ businesses|length }} of searched term {{message}}</h2>
-    {% else %}
-      <h2 style="text-align:center"> Found 0 articles for the search term {{message}}</h2>
-    {% endif %}
+    </div> -->
+    <h2>Business details</h2>
+    <div class="row" >
 
-  </div>
-
-  <div class="row" style="margin-left:25%">
-
-  {% if businesses %}
-    {% for business in businesses %}
-      <div class="col-md-3" style="font-size:20px">
-        <p><strong>business_name:</strong>{{business.business_name}}</p>
-        <p><strong>Email_address:</strong>{{business.email}}</p>
-        <p><strong>Location:</strong>{{business.neighborhood}}</p>
+        {% if businesses %}
+        {% for business in businesses %}
         
-          
-      </div>
-    {% endfor %}
-  {% endif %}
-  </div>
+        <div class="card " style="font-size:20px; ">
+            
+            <div class="card-body">
+                <p><strong>business_name:</strong>{{business.business_name}}</p>
+                <p><strong>Email_address:</strong>{{business.email}}</p>
+                <p><strong>Location:</strong>{{business.neighborhood}}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
