@@ -20,7 +20,7 @@ def neighborhood(request,neighborhood_id):
     events = Event.objects.filter(neighborhood = neighbors.id).all()
     profile = Profile.objects.filter(id=current_user.id).first()
     
-    return render(request,'neighborhood.html',{'business':business,'neighbors':neighbors,'event':events,'neighborhood_id':neighborhood_id})
+    return render(request,'hood.html',{'business':business,'neighbors':neighbors,'event':events,'neighborhood_id':neighborhood_id})
  
 @login_required(login_url='/accounts/login/')
 def new_business(request):
