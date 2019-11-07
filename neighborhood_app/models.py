@@ -34,8 +34,10 @@ class Neighbor(models.Model):
 class Profile(models.Model):
     f_name  = models.CharField(max_length= 30,null=True)
     l_name  = models.CharField(max_length= 30, null=True)
+    general_location = models.CharField(max_length= 30,null=True)
     neighborhood= models.ForeignKey(Neighbor,null=True)
     user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
+
    
     def __str__(self):
         return self.f_name

@@ -52,13 +52,17 @@ def new_events(request):
     else:
         form = EventForm()
         return render(request,'nw_event.html',{"form":form})
-    
+
+
+
+
+
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
     current_user = request.user
     profile = Profile.objects.filter(user=current_user).first()
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=profile)
+        form = ProfileForm(request.POST,instance=profile)
         if form.is_valid():
             profile =form.save(commit=False)
             profile.user = current_user

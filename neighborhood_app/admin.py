@@ -4,4 +4,4 @@ from .models import Neighbor,Profile
 
 # Register your models here.
 admin.site.register(Neighbor)
-admin.site.register(Profile)
+
