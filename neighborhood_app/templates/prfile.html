@@ -4,9 +4,9 @@
 {% block content %}
 {{ block.super}}
 
-<div style="margin-left:25%">
-    <h2>{{current_user.username}} Profile</h2>
-    <div>
+<div style="border:opx solid black; background-color:azure; margin:20%;margin-top: 10%; text-align: center">
+    <h2 style="margin-bottom:50px">{{current_user.username}} Profile</h2>
+    <div >
         <p>First name:{{profile.f_name}}</p>
         <p>Last name:{{profile.l_name}}</p>
         <P>Neighborhood: {{profile.neighborhood}}</p>
