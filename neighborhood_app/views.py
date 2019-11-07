@@ -52,11 +52,7 @@ def new_events(request):
     else:
         form = EventForm()
         return render(request,'nw_event.html',{"form":form})
-
-
-
-
-
+        
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
     current_user = request.user
@@ -78,8 +74,4 @@ def myprofile(request):
      current_user = request.user
      profile = Profile.objects.filter(user=current_user).first()
      return render(request,'prfile.html',{"profile":profile,"current_user":current_user})
-
-                     
-
-
 

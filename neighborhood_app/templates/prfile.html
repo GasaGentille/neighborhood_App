@@ -4,7 +4,7 @@
 {% block content %}
 {{ block.super}}
 
-<div>
+<div style="margin-left:25%">
     <h2>{{current_user.username}} Profile</h2>
     <div>
         <p>First name:{{profile.f_name}}</p>
@@ -15,6 +15,7 @@
         <a href="{% url 'add_profile' %}"><button class="btn btn-success btn-lg">Edit profile</button></a>
 
     </div>
+
 </div>
 
 

@@ -54,7 +54,6 @@ class Profile(models.Model):
 class Business(models.Model):
     business_name = models.CharField(max_length= 30,null=True)
     neighborhood = models.ForeignKey(Neighbor,null=True)
-    profile = models.ForeignKey(Profile,null=True)
     user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
     email= models.EmailField(max_length= 30,null=True)
 
