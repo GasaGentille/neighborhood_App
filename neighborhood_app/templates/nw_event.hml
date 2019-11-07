@@ -1,5 +1,4 @@
-{%extends 'all-apps/base.html'%}
-{% load bootstrap3 %}
+{%extends 'base.html'%}
 {% load bootstrap4 %}
  {% load staticfiles %}
 {% block content %}

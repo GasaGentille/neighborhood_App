@@ -48,7 +48,7 @@ def new_events(request):
             event_post = form.save(commit=False)
             event_post.user = current_user
             event_post.save()
-            return redirect('index')
+            return redirect('welcome')
     else:
         form = EventForm()
         return render(request,'new_event.html',{"form":form})
@@ -73,7 +73,7 @@ def new_profile(request):
 def myprofile(request):
      current_user = request.user
      profile = Profile.objects.filter(user=current_user).first()
-     return render(request,'profile.html',{"profile":profile,"current_user":current_user})
+     return render(request,'prfile.html',{"profile":profile,"current_user":current_user})
 
                      
 

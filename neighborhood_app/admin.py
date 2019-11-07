@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Neighbor
+from .models import Neighbor,Profile
 
 
 # Register your models here.
-# admin.site.register(NeighborHood)
+admin.site.register(Neighbor)
+admin.site.register(Profile)

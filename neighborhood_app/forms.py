@@ -5,7 +5,7 @@ from django import forms
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = ['user']
+        exclude = ['user','Profie']
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -15,5 +15,10 @@ class ProfileForm(forms.ModelForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model= Event
-        exclude=['user']
+        exclude=['user'] 
+
+class NeighborForm(forms.ModelForm):
+    class Meta:
+        model : Neighbor
+        fields = ['name']
                 
