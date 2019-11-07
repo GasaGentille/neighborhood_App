@@ -35,7 +35,7 @@ def new_business(request):
             return redirect('profile')
     else:
         form = BusinessForm()
-        return render(request,'new_business.html',{"form": form})
+        return render(request,'nw_business.html',{"form": form})
 
 @login_required(login_url='/accounts/login/')
 def new_events(request):
