@@ -51,7 +51,7 @@ def new_events(request):
             return redirect('welcome')
     else:
         form = EventForm()
-        return render(request,'new_event.html',{"form":form})
+        return render(request,'nw_event.html',{"form":form})
     
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
