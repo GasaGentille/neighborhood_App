@@ -1,15 +1,15 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="container"  style="margin-left:25%; margin-top: 10%">
+<div class="container"  style="margin-left:40%; margin-top: 10%">
 
-    <h2>Business details</h2>
+    
     <div class="row" >
 
         {% if businesses %}
         {% for business in businesses %}
         
-        <div class="card " style="font-size:20px; ">
-            
+        <div class="card " style="font-size:20px; font-weight: 200">
+                <h2><u>Business details</u></h2>
             <div class="card-body">
                 <p><strong>business_name:</strong>{{business.business_name}}</p>
                 <p><strong>Email_address:</strong>{{business.email}}</p>
