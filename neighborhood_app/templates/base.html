@@ -2,31 +2,79 @@
 {% load static%}
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
 
   {% if title %}
   <title>Neighborhood - {{title}}</title>
   {% else %}
-    <title> Neighborhood </title>
+  <title> Neighborhood </title>
   {% endif %}
 
   {% block styles %}
-    {% bootstrap_css %}
-    <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
-  
+  {% bootstrap_css %}
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+
   {% endblock %}
 
 </head>
-<body style="background-image:url('https://citi.io/wp-content/uploads/2015/08/1168-00-06-1263x560.jpg');background-size: cover;background-repeat: no-repeat; filter: brightness(80%)">
-  
-        {% include "navbar.html" %}
-    {% block content %}  {%endblock%}
 
-    {% block scripts %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     {% bootstrap_javascript %}
-    {% endblock %}
+<body>
+
+  {% include "navbar.html" %}
+  {% block content %} {%endblock%}
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+  {% endblock %}
+
+  <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="view overlay z-depth-1-half">
+              <img src="http://www.kigalicc.com/uploads/9/8/2/4/98249186/img-9412_1_orig.jpg" class="img-fluid" alt="">
+              <a href="">
+                <div class="mask rgba-white-light"></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+              <div class="view overlay z-depth-1-half">
+                <h1>Know your Neighborhood</h1>
+                <p>Have something to say? 
+                    <a href="{% url 'nw-event' %}">Post please!</a>
+                  
+                  Feel free to add business infos
+                  <a href="{% url 'new-business' %}">Add business</a>
+                </p>
+
+              </div>
+            </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="https://www.heritagerwandasafaris.com/wp-content/uploads/2018/10/kigali.jpg" class="img-fluid" alt="">
+            <a href="">
+              <div class="mask rgba-white-light"></div>
+            </a>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>
