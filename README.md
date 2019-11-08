@@ -23,7 +23,7 @@ Admin ability to the pplication:
 - update neigborhood details 
 
 
-You can visit the application using: 
+You can visit the application using live link: https://neighborhooddjango.herokuapp.com/
 
 ## SetUp/Installation instructions
 
