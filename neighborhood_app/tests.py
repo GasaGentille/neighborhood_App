@@ -52,3 +52,27 @@ class BusinessTestClass(TestCase):
         delete = Business.objects.filter().delete()
         businesses = Business.objects.all()
         self.assertFalse(len(businesses)==1)
+
+class EventTestClass(TestCase):
+    def setUp(self):
+        # Creating a new profile and saving it
+        self.new_event= Event( description ='birthday')
+
+    # Testing  instance
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_event,Event))
+
+   # Testing Save Method
+    def test_save_event(self):
+        self.new_event.save_event()
+        events = Event.objects.all()
+        self.assertTrue(len(events) > 0) 
+
+    #test delete
+    def test_delete_event(self):
+        self.new_event.save_event()
+        event = Event.objects.filter(description ='birthday').first()
+        delete = Event.objects.filter().delete()
+        events = Event.objects.all()
+        self.assertFalse(len(events)==1)

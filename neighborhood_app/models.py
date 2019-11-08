@@ -86,6 +86,9 @@ class Event(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE)
     date=models.DateTimeField(auto_now_add=True,null=True)
 
+    def __str__(self):
+        return self.description
+    
     def save_event(self):
         self.save()
 
