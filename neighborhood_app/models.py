@@ -57,6 +57,9 @@ class Business(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE,null=True)
     email= models.EmailField(max_length= 30,null=True)
 
+    def __str__(self):
+        return self.business_name
+
     def save_business(self):
         self.save()
 
